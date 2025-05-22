@@ -21,8 +21,8 @@ public class Order {
     private LocalDateTime creationDate;
     @Column(nullable = false, name = "last_update_date")
     private LocalDateTime lastUpdateDate;
-    @Column(nullable = false)
     @Enumerated(EnumType.STRING)
+    @Column(nullable = false)
     private OrderStatus status;
     @Column(nullable = false, name = "user_id")
     private Long userId;

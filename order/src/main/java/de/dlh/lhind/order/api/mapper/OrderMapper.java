@@ -18,7 +18,7 @@ public class OrderMapper {
                 .map(productId -> {
                     OrderProduct orderProduct = new OrderProduct();
                     orderProduct.setId(productId);
-                    orderProduct.setOrderId(dto.id());
+                    orderProduct.setProductId(dto.id());
                     return orderProduct;
                 })
                 .collect(Collectors.toSet()));

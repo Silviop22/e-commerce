@@ -11,8 +11,8 @@ import jakarta.persistence.Table;
 public class OrderProduct {
     @Id
     private Long id;
-    @Column(nullable = false, name = "order_id")
-    private Long orderId;
+    @Column(nullable = false, name = "product_id")
+    private Long productId;
     @ManyToOne
     private Order order;
 
@@ -24,12 +24,12 @@ public class OrderProduct {
         this.id = id;
     }
 
-    public Long getOrderId() {
-        return orderId;
+    public Long getProductId() {
+        return productId;
     }
 
-    public void setOrderId(Long orderId) {
-        this.orderId = orderId;
+    public void setProductId(Long productId) {
+        this.productId = productId;
     }
 
     public Order getOrder() {
