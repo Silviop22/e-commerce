@@ -1,6 +1,6 @@
 package de.dlh.lhind.order.api.model;
 
-import de.dlh.lhind.order.persistence.model.OrderStatus;
+import de.dlh.lhind.order.infrastructure.persistence.model.OrderStatus;
 
 import java.time.LocalDateTime;
 import java.util.Set;

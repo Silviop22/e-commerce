@@ -1,4 +1,4 @@
-package de.dlh.lhind.order.persistence.model;
+package de.dlh.lhind.order.infrastructure.persistence.model;
 
 public enum OrderStatus {
     PENDING("Pending"),

@@ -1,8 +1,8 @@
 package de.dlh.lhind.order.api.mapper;
 
 import de.dlh.lhind.order.api.model.OrderDto;
-import de.dlh.lhind.order.persistence.model.Order;
-import de.dlh.lhind.order.persistence.model.OrderProduct;
+import de.dlh.lhind.order.infrastructure.persistence.model.Order;
+import de.dlh.lhind.order.infrastructure.persistence.model.OrderProduct;
 
 import java.util.stream.Collectors;
 

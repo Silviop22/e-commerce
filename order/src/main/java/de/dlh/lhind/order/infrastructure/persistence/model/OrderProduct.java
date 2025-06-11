@@ -1,4 +1,4 @@
-package de.dlh.lhind.order.persistence.model;
+package de.dlh.lhind.order.infrastructure.persistence.model;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;

@@ -4,7 +4,7 @@ spring:
   datasource:
     url: jdbc:h2:mem:order
     driverClassName: org.h2.Driver
-    username: order
+    username: fulfillment
     password: password
     jpa:
       hibernate:
@@ -24,13 +24,11 @@ spring:
     pub-sub-domain: false
 
 server:
-    port: 8082
+  port: 8083
 
-order:
+fulfillment:
   application:
     jms:
-      publish:
+      receive:
         order:
           topic: ORDER.QUEUE
-          delivery-persistent: true
-          session-truncated: true
