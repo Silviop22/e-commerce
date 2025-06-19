@@ -16,12 +16,12 @@ spring:
       enabled: true
       path: /h2-console
   artemis:
+    broker-url: tcp://localhost:61616
     mode: native
-    broker-url: tcp://localhost:8161
-    user: admin
-    password: admin
+    user: artemis
+    password: artemis
   jms:
-    pub-sub-domain: false
+    pub-sub-domain: true
 
 server:
     port: 8082
@@ -29,8 +29,8 @@ server:
 order:
   application:
     jms:
-      publish:
+      producer:
         order:
-          topic: ORDER.QUEUE
           delivery-persistent: true
-          session-truncated: true
+          session-transacted: true
+          default-topic: ORDER

@@ -13,8 +13,8 @@
 
     <modules>
         <module>shared-lib</module>
-        <module>fulfillment</module>
         <module>order</module>
         <module>product</module>
+        <module>fulfillment</module>
     </modules>
 </project>

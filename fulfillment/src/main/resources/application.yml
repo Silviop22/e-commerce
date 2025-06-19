@@ -1,8 +1,8 @@
 spring:
   application:
-    name: order
+    name: fulfillment
   datasource:
-    url: jdbc:h2:mem:order
+    url: jdbc:h2:mem:fulfillment
     driverClassName: org.h2.Driver
     username: fulfillment
     password: password
@@ -16,19 +16,22 @@ spring:
       enabled: true
       path: /h2-console
   artemis:
+    broker-url: tcp://localhost:61616
     mode: native
-    broker-url: tcp://localhost:8161
-    user: admin
-    password: admin
+    user: artemis
+    password: artemis
   jms:
-    pub-sub-domain: false
+    pub-sub-domain: true
 
 server:
   port: 8083
 
+activate:
+  listener: true
+
 fulfillment:
   application:
     jms:
-      receive:
+      listener:
         order:
-          topic: ORDER.QUEUE
+          topic: ORDER

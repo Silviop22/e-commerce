@@ -2,7 +2,7 @@ package de.dlh.lhind.order.service;
 
 import de.dlh.lhind.order.api.mapper.OrderMapper;
 import de.dlh.lhind.order.api.model.OrderDto;
-import de.dlh.lhind.order.infrastructure.jms.publisher.OrderEventPublisher;
+import de.dlh.lhind.order.infrastructure.jms.producer.OrderMessageProducer;
 import de.dlh.lhind.order.infrastructure.persistence.repository.OrderRepository;
 import org.springframework.stereotype.Service;
 
@@ -10,20 +10,19 @@ import org.springframework.stereotype.Service;
 public class OrderService {
 
     private final OrderRepository orderRepository;
-    private final OrderEventPublisher orderEventPublisher;
+    private final OrderMessageProducer orderPublisher;
 
     public OrderService(final OrderRepository orderRepository,
-                        final OrderEventPublisher orderEventPublisher) {
+                        final OrderMessageProducer orderPublisher) {
         this.orderRepository = orderRepository;
-        this.orderEventPublisher = orderEventPublisher;
+        this.orderPublisher = orderPublisher;
     }
 
     public Long createOrder(OrderDto orderDto) {
-        final Long createdOrderId = orderRepository.save(OrderMapper.toOrder(orderDto)).getId();
+        final Long storedOrder = orderRepository.save(OrderMapper.toOrder(orderDto)).getId();
+        orderPublisher.publishOrder(orderDto);
 
-        orderEventPublisher.publishOrder(orderDto);
-
-        return createdOrderId;
+        return storedOrder;
     }
 
 }
